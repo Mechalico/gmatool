@@ -511,9 +511,13 @@ int gmatplMerge(string filename1, string filename2){
 		newtpl << tplpaddingpointer;
 	}
 	//remaining data bytes, tpl1
-	copyBytes(tpl1, newtpl, tpl1headerlength, tpl1length - tpl1headerlength);
+	if (tpl1textureamount != 0){
+		copyBytes(tpl1, newtpl, tpl1headerlength, tpl1length - tpl1headerlength);
+	}
 	//tpl2
-	copyBytes(tpl2, newtpl, tpl2headerlength, tpl2length - tpl2headerlength);
+	if (tpl2textureamount != 0){
+		copyBytes(tpl2, newtpl, tpl2headerlength, tpl2length - tpl2headerlength);
+	}
 	newtpl.close();
 	gma1.close();
 	tpl1.close();
