@@ -75,7 +75,7 @@ void saveIntToFileEnd(ofstream& bof, uint32_t newint){
 	char buffer[4];
 	char* initbuffer = reinterpret_cast<char*>(&newint);
 		//assigns values wrt endianness
-		if (isLittleEndian){
+		if (isLittleEndian()){
 			for (int i = 0; i < 4; i++){
 				buffer[i] = initbuffer[3-i];
 			}
@@ -92,7 +92,7 @@ void saveShortToFileEnd(ofstream& bof, uint16_t newint){
 	char buffer[2];
 	char* initbuffer = reinterpret_cast<char*>(&newint);
 		//assigns values wrt endianness
-		if (isLittleEndian){
+		if (isLittleEndian()){
 			for (int i = 0; i < 2; i++){
 				buffer[i] = initbuffer[1-i];
 			}
