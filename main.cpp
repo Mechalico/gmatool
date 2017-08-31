@@ -31,7 +31,7 @@ uint32_t fileIntPluck (ifstream& bif, uint32_t offset){
 	//convert signed to unsigned
 	unsigned char* ubuf = reinterpret_cast<unsigned char*>(buffer);
 	uint32_t returnint = 0;
-	if (isLittleEndian){
+	if (isLittleEndian()){
 		returnint = (ubuf[3] << 0) | (ubuf[2] << 8) | (ubuf[1] << 16) | (ubuf[0] << 24);
 	} else {
 		returnint = (ubuf[0] << 0) | (ubuf[1] << 8) | (ubuf[2] << 16) | (ubuf[3] << 24);
@@ -46,7 +46,7 @@ uint16_t fileShortPluck (ifstream& bif, uint32_t offset){
 	//convert signed to unsigned
 	unsigned char* ubuf = reinterpret_cast<unsigned char*>(buffer);
 	uint16_t returnshort = 0;
-	if (isLittleEndian){
+	if (isLittleEndian()){
 		returnshort = (ubuf[1] << 0) | (ubuf[0] << 8);
 	} else {
 		returnshort = (ubuf[0] << 0) | (ubuf[1] << 8);
